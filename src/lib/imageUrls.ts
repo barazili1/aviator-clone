@@ -1,15 +1,20 @@
 export const IMAGE_URLS = {
-  brandLogo: "/__l5e/assets-v1/7529420e-9c0e-447c-8fd4-4485a5385e4c/brand-logo.jpg",
-  winwinLogo: "/__l5e/assets-v1/ccaed62f-955e-446e-9a95-54acee3bd52a/winwin.png",
-  greenbetLogo: "/__l5e/assets-v1/bfdc5697-6f3e-4c8c-b71b-ecd4dc817010/greenbet.jpg",
-  heroBg: "/__l5e/assets-v1/bd1870b1-8d98-44c6-ab10-a6f5db6ac057/hero-bg.jpg",
-  plane: "/__l5e/assets-v1/5a54e27f-324c-452a-a705-e18f74ae044f/plane-3d.png",
-  skyBg: "/__l5e/assets-v1/78d07f95-77d6-4e7a-9529-9708d491e774/sky-bg.jpg",
-  termsHero: "/__l5e/assets-v1/13370d78-4421-406b-b3bf-d78dea5f3609/terms-hero.jpg",
-  stepDownload: "/__l5e/assets-v1/768dbdec-907c-4cdc-b082-6ee77845135a/step-download.jpg",
-  stepRegister: "/__l5e/assets-v1/da228cfd-f6b9-4f6d-9131-1441df46e2a5/step-register.jpg",
-  stepTelegram: "/__l5e/assets-v1/42d2fa31-ff8e-4459-85d6-3112bb7e59e8/step-telegram.jpg",
-  stepDeposit: "/__l5e/assets-v1/f49b113e-1d44-4d3b-a785-933c6e00ca14/step-deposit.jpg",
+  brandLogo: "https://cdn.phototourl.com/free/2026-08-08-130795de-dd2f-484b-8c27-5bfd18f16d15.jpg",
+  winwinLogo: "https://cdn.phototourl.com/free/2026-08-08-70161f7e-91cf-4058-bef3-3fa1a72ed24b.png",
+  greenbetLogo:
+    "https://cdn.phototourl.com/free/2026-08-08-3f1601ef-fe03-4624-bca8-e150cdf1cdca.jpg",
+  heroBg: "https://cdn.phototourl.com/free/2026-08-08-f467818f-8025-461c-8258-c0b9c24f6f79.jpg",
+  plane: "https://cdn.phototourl.com/free/2026-08-08-1c110c45-e731-425e-bcaa-b8378b2e7781.png",
+  skyBg: "https://cdn.phototourl.com/free/2026-08-08-873e2992-95a7-46ac-953a-8270b6d19a81.jpg",
+  termsHero: "https://cdn.phototourl.com/free/2026-08-08-5f2c7f9f-6a1b-4f78-980a-3e11c9c20285.jpg",
+  stepDownload:
+    "https://cdn.phototourl.com/free/2026-08-08-c8988641-d35a-4049-9cc8-8d19cb1afd0c.jpg",
+  stepRegister:
+    "https://cdn.phototourl.com/free/2026-08-08-ea05938b-8d3f-4bf3-a989-50773b474430.jpg",
+  stepTelegram:
+    "https://cdn.phototourl.com/free/2026-08-08-09d3e36d-522a-4f77-9c83-9af5a6f8f2d8.jpg",
+  stepDeposit:
+    "https://cdn.phototourl.com/free/2026-08-08-7a9cc240-20a8-4958-8d1a-8af54cf6128a.jpg",
 } as const;
 
 export const ALL_IMAGE_URLS = Object.values(IMAGE_URLS);
