@@ -9,6 +9,9 @@ import {
   ShieldCheck,
   IdCard,
   BadgeCheck,
+  Ticket,
+  Copy,
+  Check,
 } from "lucide-react";
 import type { Platform } from "./PlatformSelect";
 import { IMAGE_URLS } from "@/lib/imageUrls";
@@ -23,6 +26,8 @@ const PLATFORM_LINKS: Record<Platform, string> = {
   Greenbet: "https://refpa79184.com/L?tag=d_5942292m_132250c_&site=5942292&ad=132250",
 };
 
+const PROMO_CODE = "SH222";
+
 const TELEGRAM_LINK = "https://t.me/+dOilU-Mdd3E4OTk8";
 
 export function Terms({
@@ -33,6 +38,17 @@ export function Terms({
   onComplete: (id: string) => void;
 }) {
   const [id, setId] = useState("");
+  const [copied, setCopied] = useState(false);
+
+  const copyPromo = async () => {
+    try {
+      await navigator.clipboard.writeText(PROMO_CODE);
+    } catch {
+      /* ignore */
+    }
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1600);
+  };
   const ready = id.trim().length > 0;
 
   const items = [
@@ -59,6 +75,15 @@ export function Terms({
       tag: "فوري",
        img: IMAGE_URLS.stepTelegram,
       href: TELEGRAM_LINK,
+    },
+    {
+      icon: Ticket,
+      title: "التسجيل بالبروموكود",
+      desc: `استخدم كود ${PROMO_CODE} عند إنشاء الحساب`,
+      tag: "مطلوب",
+      img: IMAGE_URLS.stepRegister,
+      href: PLATFORM_LINKS[platform],
+      promo: PROMO_CODE,
     },
     {
       icon: Wallet,
@@ -192,6 +217,21 @@ export function Terms({
                   </span>
                 </div>
               </a>
+              {"promo" in it && it.promo && (
+                <div className="flex items-center gap-2 border-t border-primary/10 px-3.5 py-2.5">
+                  <span className="flex-1 rounded-xl bg-secondary px-3 py-2 text-center font-display text-sm font-extrabold tracking-[0.2em] text-primary">
+                    {it.promo}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={copyPromo}
+                    className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-[image:var(--gradient-accent)] px-3 py-2 text-xs font-bold text-primary-foreground shadow-[var(--shadow-glow)]"
+                  >
+                    {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                    {copied ? "تم النسخ" : "نسخ"}
+                  </button>
+                </div>
+              )}
             </motion.li>
 
           ))}
