@@ -82,7 +82,7 @@ export function Terms({
       desc: `استخدم كود ${PROMO_CODE} عند إنشاء الحساب`,
       tag: "مطلوب",
       img: IMAGE_URLS.stepRegister,
-      href: PLATFORM_LINKS[platform],
+      href: undefined as string | undefined,
       promo: PROMO_CODE,
     },
     {
@@ -91,7 +91,7 @@ export function Terms({
       desc: "الحد الأدنى لتشغيل السكريبت",
       tag: "مطلوب",
        img: IMAGE_URLS.stepDeposit,
-      href: PLATFORM_LINKS[platform],
+      href: undefined as string | undefined,
     },
   ];
 
@@ -181,12 +181,13 @@ export function Terms({
               className="group relative overflow-hidden rounded-3xl border border-primary/12 bg-card shadow-[var(--shadow-card)]"
             >
               <span className="pointer-events-none absolute inset-y-0 right-0 w-1 bg-[image:var(--gradient-accent)] opacity-70" />
-              <a
-                href={it.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-3.5"
-              >
+              {(() => {
+              const Wrapper: any = it.href ? "a" : "div";
+              const wrapperProps = it.href
+                ? { href: it.href, target: "_blank", rel: "noopener noreferrer" }
+                : {};
+              return (
+              <Wrapper {...wrapperProps} className="flex items-center gap-3 p-3.5">
                 <span className="relative shrink-0 overflow-hidden rounded-2xl border border-primary/12 bg-secondary/50">
                   <img
                     src={it.img}
@@ -211,12 +212,16 @@ export function Terms({
                     </span>
                   </div>
                   <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{it.desc}</p>
-                  <span className="mt-1.5 inline-flex items-center gap-1 text-[0.62rem] font-bold text-primary">
-                    اضغط للفتح
-                    <ArrowLeft className="h-3 w-3 transition-transform group-hover:-translate-x-1" />
-                  </span>
+                  {it.href && (
+                    <span className="mt-1.5 inline-flex items-center gap-1 text-[0.62rem] font-bold text-primary">
+                      اضغط للفتح
+                      <ArrowLeft className="h-3 w-3 transition-transform group-hover:-translate-x-1" />
+                    </span>
+                  )}
                 </div>
-              </a>
+              </Wrapper>
+              );
+              })()}
               {"promo" in it && it.promo && (
                 <div className="flex items-center gap-2 border-t border-primary/10 px-3.5 py-2.5">
                   <span className="flex-1 rounded-xl bg-secondary px-3 py-2 text-center font-display text-sm font-extrabold tracking-[0.2em] text-primary">

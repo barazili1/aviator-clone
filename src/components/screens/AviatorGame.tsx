@@ -108,45 +108,55 @@ export function AviatorGame({ platform, userId, onBack }: { platform: string; us
   })();
 
   return (
-    <div className="relative mx-auto flex min-h-dvh w-full max-w-md flex-col justify-center overflow-hidden bg-[image:var(--gradient-page)] px-5 py-9">
-      {onBack && (
-        <button
-          type="button"
-          onClick={onBack}
-          aria-label="رجوع"
-          className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full bg-secondary px-3.5 py-2 text-xs font-semibold text-foreground transition hover:bg-secondary/70"
-        >
-          <ArrowRight className="h-4 w-4" /> رجوع
-        </button>
-      )}
-      <header className="relative grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
-        <div className="min-w-0">
-          <p className="flex items-center gap-1.5 text-[0.6rem] uppercase tracking-[0.35em] text-primary">
-            <Radio className="h-3 w-3 animate-pulse" /> Live predictor
-          </p>
-          <h1 className="mt-1 truncate font-display text-[1.9rem] font-extrabold tracking-tight text-foreground">
+    <div
+      dir="rtl"
+      className="relative mx-auto flex min-h-dvh w-full max-w-md flex-col bg-[image:var(--gradient-page)] pb-10"
+    >
+      {/* Top bar */}
+      <div className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-primary/10 bg-background/70 px-4 py-3 backdrop-blur-xl">
+        {onBack ? (
+          <button
+            type="button"
+            onClick={onBack}
+            aria-label="رجوع"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-primary/15 bg-card text-foreground shadow-[var(--shadow-card)] transition hover:bg-secondary"
+          >
+            <ArrowRight className="h-4 w-4" />
+          </button>
+        ) : (
+          <span className="h-9 w-9" />
+        )}
+
+        <div className="flex min-w-0 flex-col items-center leading-none">
+          <span className="font-display text-base font-extrabold tracking-tight text-foreground">
             Aviator
-          </h1>
+          </span>
+          <span className="mt-1 inline-flex items-center gap-1 text-[0.55rem] uppercase tracking-[0.3em] text-primary">
+            <Radio className="h-2.5 w-2.5 animate-pulse" /> Live
+          </span>
         </div>
-        <span className="shrink-0 rounded-full border border-primary/20 bg-card px-3.5 py-1.5 text-xs font-bold text-primary shadow-[var(--shadow-card)]">
+
+        <span className="shrink-0 rounded-full border border-primary/20 bg-card px-3 py-1.5 text-[0.68rem] font-bold text-primary shadow-[var(--shadow-card)]">
           {platform}
         </span>
-      </header>
+      </div>
 
-      {/* Round history */}
-      <div className="relative mt-4 flex items-center gap-2 rounded-full border border-primary/12 bg-card px-3 py-2 shadow-[var(--shadow-card)]">
+      {/* Round history rail */}
+      <div className="flex items-center gap-2 px-4 pt-3">
         <History className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
-        <div className="flex flex-1 items-center gap-1.5 overflow-x-auto">
+        <div className="flex flex-1 items-center gap-1.5 overflow-x-auto pb-0.5">
           {history.length === 0 ? (
-            <span className="text-[0.66rem] text-muted-foreground">لا توجد جولات سابقة</span>
+            <span className="text-[0.64rem] text-muted-foreground">لا توجد جولات سابقة</span>
           ) : (
             history.map((h, i) => (
               <motion.span
                 key={`${h}-${i}`}
                 initial={{ opacity: 0, scale: 0.7, x: -8 }}
                 animate={{ opacity: 1, scale: 1, x: 0 }}
-                className={`shrink-0 rounded-full px-2.5 py-0.5 font-display text-[0.68rem] font-bold tabular-nums ${
-                  h >= 2 ? "bg-success/12 text-success" : "bg-curve/12 text-curve"
+                className={`shrink-0 rounded-full border px-2.5 py-0.5 font-display text-[0.66rem] font-bold tabular-nums ${
+                  h >= 2
+                    ? "border-success/25 bg-success/10 text-success"
+                    : "border-curve/25 bg-curve/10 text-curve"
                 }`}
               >
                 {h.toFixed(2)}x
@@ -157,7 +167,7 @@ export function AviatorGame({ platform, userId, onBack }: { platform: string; us
       </div>
 
       {/* Arena */}
-      <div className="relative mt-3 overflow-hidden rounded-[1.75rem] border border-primary/15 bg-arena shadow-[var(--shadow-lift)]">
+      <div className="relative mx-4 mt-3 overflow-hidden rounded-[2rem] border border-primary/15 bg-arena shadow-[var(--shadow-lift)]">
         {/* stars */}
         <div className="pointer-events-none absolute inset-0">
           {STARS.map((s, i) => (
@@ -339,60 +349,62 @@ export function AviatorGame({ platform, userId, onBack }: { platform: string; us
         )}
       </div>
 
-      {/* Stats strip */}
-      <div dir="rtl" className="relative mt-3 grid grid-cols-3 gap-2">
-        {[
-          { l: "الحالة", v: status === "flying" ? "طيران" : status === "crashed" ? "انفجار" : "جاهز" },
-          { l: "آخر أود", v: history[0] ? `${history[0].toFixed(2)}x` : "—" },
-          { l: "الجولات", v: String(history.length) },
-        ].map((s) => (
-          <div
-            key={s.l}
-            className="rounded-2xl border border-primary/12 bg-card px-3 py-2 text-center shadow-[var(--shadow-card)]"
+      {/* Stats + controls */}
+      <div className="mx-4 mt-4 rounded-[1.75rem] border border-primary/12 bg-card p-3 shadow-[var(--shadow-card)]">
+        <div className="grid grid-cols-3 divide-x divide-x-reverse divide-primary/10">
+          {[
+            {
+              l: "الحالة",
+              v: status === "flying" ? "طيران" : status === "crashed" ? "انفجار" : "جاهز",
+            },
+            { l: "آخر أود", v: history[0] ? `${history[0].toFixed(2)}x` : "—" },
+            { l: "الجولات", v: String(history.length) },
+          ].map((s2) => (
+            <div key={s2.l} className="px-2 text-center">
+              <p className="text-[0.55rem] uppercase tracking-[0.18em] text-muted-foreground">
+                {s2.l}
+              </p>
+              <p className="mt-1 font-display text-sm font-extrabold tabular-nums text-foreground">
+                {s2.v}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-3 flex items-center gap-2.5">
+          <motion.button
+            type="button"
+            whileTap={{ scale: 0.98 }}
+            onClick={start}
+            disabled={status !== "idle"}
+            className="group relative flex flex-1 items-center justify-center gap-2 overflow-hidden rounded-2xl bg-[image:var(--gradient-accent)] px-4 py-4 font-display text-base font-bold text-primary-foreground shadow-[var(--shadow-glow)] transition-all hover:brightness-110 disabled:bg-none disabled:bg-secondary disabled:text-muted-foreground disabled:shadow-none"
           >
-            <p className="text-[0.58rem] uppercase tracking-[0.18em] text-muted-foreground">{s.l}</p>
-            <p className="mt-0.5 font-display text-sm font-extrabold tabular-nums text-foreground">
-              {s.v}
-            </p>
-          </div>
-        ))}
+            <span className="pointer-events-none absolute inset-0 -translate-x-full bg-[linear-gradient(100deg,transparent,rgba(255,255,255,0.35),transparent)] transition-transform duration-700 group-hover:translate-x-full" />
+            {status === "loading" ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <Play className="h-4 w-4" />
+            )}
+            {status === "loading" ? "جاري التوقع" : "ابدأ التوقع"}
+          </motion.button>
+          <motion.button
+            type="button"
+            whileTap={{ scale: 0.94, rotate: -25 }}
+            onClick={reset}
+            disabled={status === "idle"}
+            aria-label="إعادة"
+            className="flex h-[3.4rem] w-[3.4rem] shrink-0 items-center justify-center rounded-2xl border border-primary/15 bg-secondary text-foreground transition-colors hover:bg-secondary/70 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            <RotateCcw className="h-4.5 w-4.5" />
+          </motion.button>
+        </div>
+
+        <p className="mt-3 flex items-center justify-center gap-1.5 text-[0.6rem] text-muted-foreground">
+          <TrendingUp className="h-3 w-3 text-success" /> إشارة محدثة لحظياً
+        </p>
       </div>
 
-      {/* Controls */}
-      <div className="relative mt-4 grid grid-cols-[1.4fr_1fr] gap-3">
-        <motion.button
-          type="button"
-          whileTap={{ scale: 0.98 }}
-          whileHover={{ y: -2 }}
-          onClick={start}
-          disabled={status !== "idle"}
-          className="group relative flex items-center justify-center gap-2 overflow-hidden rounded-2xl bg-[image:var(--gradient-accent)] px-4 py-4 font-display text-base font-bold text-primary-foreground shadow-[var(--shadow-glow)] transition-all hover:brightness-110 disabled:bg-none disabled:bg-secondary disabled:text-muted-foreground disabled:shadow-none"
-        >
-          <span className="pointer-events-none absolute inset-0 -translate-x-full bg-[linear-gradient(100deg,transparent,rgba(255,255,255,0.35),transparent)] transition-transform duration-700 group-hover:translate-x-full" />
-          {status === "loading" ? (
-            <Loader2 className="h-4 w-4 animate-spin" />
-          ) : (
-            <Play className="h-4 w-4" />
-          )}{" "}
-          Start
-        </motion.button>
-        <motion.button
-          type="button"
-          whileTap={{ scale: 0.98 }}
-          whileHover={{ y: -2 }}
-          onClick={reset}
-          disabled={status === "idle"}
-          className="glass-card flex items-center justify-center gap-2 rounded-2xl px-4 py-4 font-display text-base font-bold text-foreground transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:text-muted-foreground disabled:opacity-60"
-        >
-          <RotateCcw className="h-4 w-4" /> Restart
-        </motion.button>
-      </div>
-
-      <div className="relative mt-6 flex items-center justify-center gap-2 text-[0.62rem] text-muted-foreground">
-        <TrendingUp className="h-3 w-3 text-success" /> إشارة محدثة لحظياً
-      </div>
-
-      <div className="relative mt-5">
+      <div className="mt-5 px-4">
         <WinnersList compact />
       </div>
 
