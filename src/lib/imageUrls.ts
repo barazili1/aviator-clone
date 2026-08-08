@@ -1,10 +1,7 @@
 export const IMAGE_URLS = {
-  brandLogo:
-    "https://cdn.phototourl.com/free/2026-08-07-853c1ac8-f88a-43ed-9c25-ce6366274c8d.jpg",
-  winwinLogo:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDBd0TpCQWUvWfxuU9DfJRgEs604mfmOEr0EHZOY0b9w&s=10",
-  greenbetLogo:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPoAmJRao5l-ZRDcm5skZ_8RXDLW4TTDcXPc1Pn9fNmw&s",
+  brandLogo: "/__l5e/assets-v1/7529420e-9c0e-447c-8fd4-4485a5385e4c/brand-logo.jpg",
+  winwinLogo: "/__l5e/assets-v1/ccaed62f-955e-446e-9a95-54acee3bd52a/winwin.png",
+  greenbetLogo: "/__l5e/assets-v1/bfdc5697-6f3e-4c8c-b71b-ecd4dc817010/greenbet.jpg",
   heroBg: "/__l5e/assets-v1/bd1870b1-8d98-44c6-ab10-a6f5db6ac057/hero-bg.jpg",
   plane: "/__l5e/assets-v1/5a54e27f-324c-452a-a705-e18f74ae044f/plane-3d.png",
   skyBg: "/__l5e/assets-v1/78d07f95-77d6-4e7a-9529-9708d491e774/sky-bg.jpg",
