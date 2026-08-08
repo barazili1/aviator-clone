@@ -70,8 +70,12 @@ function Index() {
               }}
             />
           )}
-          {screen === "crash" && <AviatorGame platform={platform} userId={userId} />}
-          {screen === "apple" && <AppleOfFortune platform={platform} userId={userId} />}
+          {screen === "crash" && (
+            <AviatorGame platform={platform} userId={userId} onBack={() => setPicking(true)} />
+          )}
+          {screen === "apple" && (
+            <AppleOfFortune platform={platform} userId={userId} onBack={() => setPicking(true)} />
+          )}
         </motion.div>
       </AnimatePresence>
       <AnimatePresence>{picking && <GameSelectDialog onPick={pick} />}</AnimatePresence>
