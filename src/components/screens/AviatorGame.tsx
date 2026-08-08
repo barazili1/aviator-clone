@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Play, RotateCcw, X, Radio, History, Loader2, TrendingUp } from "lucide-react";
+import { Play, RotateCcw, X, Radio, History, Loader2, TrendingUp, ArrowRight } from "lucide-react";
 import { IMAGE_URLS } from "@/lib/imageUrls";
 import { WinnersList } from "./WinnersList";
 import { fetchCrashPoint, VIP_ID } from "@/lib/predictions";
@@ -49,7 +49,7 @@ const STARS = Array.from({ length: 26 }, (_, i) => ({
   d: 1.6 + ((i * 13) % 20) / 10,
 }));
 
-export function AviatorGame({ platform, userId }: { platform: string; userId?: string }) {
+export function AviatorGame({ platform, userId, onBack }: { platform: string; userId?: string; onBack?: () => void }) {
   const [status, setStatus] = useState<Status>("idle");
   const [odd, setOdd] = useState(1);
   const [progress, setProgress] = useState(0);
@@ -109,6 +109,16 @@ export function AviatorGame({ platform, userId }: { platform: string; userId?: s
 
   return (
     <div className="relative mx-auto flex min-h-dvh w-full max-w-md flex-col justify-center overflow-hidden bg-[image:var(--gradient-page)] px-5 py-9">
+      {onBack && (
+        <button
+          type="button"
+          onClick={onBack}
+          aria-label="رجوع"
+          className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full bg-secondary px-3.5 py-2 text-xs font-semibold text-foreground transition hover:bg-secondary/70"
+        >
+          <ArrowRight className="h-4 w-4" /> رجوع
+        </button>
+      )}
       <header className="relative grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
         <div className="min-w-0">
           <p className="flex items-center gap-1.5 text-[0.6rem] uppercase tracking-[0.35em] text-primary">
