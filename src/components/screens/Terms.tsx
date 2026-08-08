@@ -87,7 +87,7 @@ export function Terms({
     },
     {
       icon: Wallet,
-      title: "ايداع 250 أو أكثر",
+      title: "ايداع 300 جنيه أو 5$ ",
       desc: "الحد الأدنى لتشغيل السكريبت",
       tag: "مطلوب",
        img: IMAGE_URLS.stepDeposit,
