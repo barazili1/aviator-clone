@@ -3,10 +3,10 @@ import { ChevronLeft, ShieldCheck, Zap, Users } from "lucide-react";
 import { IMAGE_URLS } from "@/lib/imageUrls";
 import { WinnersList } from "./WinnersList";
 
-export type Platform = "Greenbet Server 2" | "Greenbet";
+export type Platform = "Coldbet" | "Greenbet";
 
 const platforms: { name: Platform; logo: string; tag: string; accent: string }[] = [
-  { name: "Greenbet Server 2", logo: IMAGE_URLS.winwinLogo, tag: "تفعيل فوري · دعم 24/7", accent: "97.4%" },
+  { name: "Coldbet", logo: IMAGE_URLS.coldbetLogo, tag: "تفعيل فوري · دعم 24/7", accent: "97.4%" },
   { name: "Greenbet", logo: IMAGE_URLS.greenbetLogo, tag: "سحب سريع · موثوقة", accent: "96.1%" },
 ];
 
