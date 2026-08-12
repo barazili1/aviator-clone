@@ -223,6 +223,19 @@ export function Terms({
               </Wrapper>
               );
               })()}
+              {"download" in it && it.download && (
+                <div className="border-t border-primary/10 px-3.5 py-2.5">
+                  <a
+                    href={it.download}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-[image:var(--gradient-accent)] px-3 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)]"
+                  >
+                    <Download className="h-4 w-4" />
+                    تحميل {platform}
+                  </a>
+                </div>
+              )}
               {"promo" in it && it.promo && (
                 <div className="flex items-center gap-2 border-t border-primary/10 px-3.5 py-2.5">
                   <span className="flex-1 rounded-xl bg-secondary px-3 py-2 text-center font-display text-sm font-extrabold tracking-[0.2em] text-primary">
