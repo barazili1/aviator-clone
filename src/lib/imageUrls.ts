@@ -3,6 +3,8 @@ export const IMAGE_URLS = {
   winwinLogo: "https://cdn.phototourl.com/free/2026-08-08-3f1601ef-fe03-4624-bca8-e150cdf1cdca.jpg",
   greenbetLogo:
     "https://cdn.phototourl.com/free/2026-08-08-3f1601ef-fe03-4624-bca8-e150cdf1cdca.jpg",
+  coldbetLogo:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1DgkrzvuOnqvE_rkCuwQTh_cGKW1YlRfN9MANztK6tg&s=10",
   heroBg: "https://cdn.phototourl.com/free/2026-08-08-f467818f-8025-461c-8258-c0b9c24f6f79.jpg",
   plane: "https://cdn.phototourl.com/free/2026-08-08-1c110c45-e731-425e-bcaa-b8378b2e7781.png",
   skyBg: "https://cdn.phototourl.com/free/2026-08-08-873e2992-95a7-46ac-953a-8270b6d19a81.jpg",

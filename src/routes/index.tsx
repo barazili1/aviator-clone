@@ -32,7 +32,7 @@ type Screen = "splash" | "platform" | "terms" | "crash" | "apple";
 
 function Index() {
   const [screen, setScreen] = useState<Screen>("splash");
-  const [platform, setPlatform] = useState<Platform>("Winwin");
+  const [platform, setPlatform] = useState<Platform>("Coldbet");
   const [userId, setUserId] = useState("");
   const [picking, setPicking] = useState(false);
   const goPlatform = useCallback(() => setScreen("platform"), []);

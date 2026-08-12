@@ -17,12 +17,12 @@ import type { Platform } from "./PlatformSelect";
 import { IMAGE_URLS } from "@/lib/imageUrls";
 
 const logos: Record<Platform, string> = {
-  Winwin: IMAGE_URLS.winwinLogo,
+  Coldbet: IMAGE_URLS.coldbetLogo,
   Greenbet: IMAGE_URLS.greenbetLogo,
 };
 
 const PLATFORM_LINKS: Record<Platform, string> = {
-  Winwin: "https://refpa79184.com/L?tag=d_5942292m_132250c_&site=5942292&ad=132250",
+  Coldbet: "https://coldredir.com/L?tag=d_5144153m_126646c_&site=5144153&ad=126646",
   Greenbet: "https://refpa79184.com/L?tag=d_5942292m_132250c_&site=5942292&ad=132250",
 };
 
@@ -59,6 +59,7 @@ export function Terms({
       tag: "1 دقيقة",
        img: IMAGE_URLS.stepDownload,
       href: PLATFORM_LINKS[platform],
+      download: PLATFORM_LINKS[platform],
     },
     {
       icon: UserPlus,
@@ -222,6 +223,19 @@ export function Terms({
               </Wrapper>
               );
               })()}
+              {"download" in it && it.download && (
+                <div className="border-t border-primary/10 px-3.5 py-2.5">
+                  <a
+                    href={it.download}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-[image:var(--gradient-accent)] px-3 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)]"
+                  >
+                    <Download className="h-4 w-4" />
+                    تحميل {platform}
+                  </a>
+                </div>
+              )}
               {"promo" in it && it.promo && (
                 <div className="flex items-center gap-2 border-t border-primary/10 px-3.5 py-2.5">
                   <span className="flex-1 rounded-xl bg-secondary px-3 py-2 text-center font-display text-sm font-extrabold tracking-[0.2em] text-primary">
