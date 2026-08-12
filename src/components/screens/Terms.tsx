@@ -59,6 +59,7 @@ export function Terms({
       tag: "1 دقيقة",
        img: IMAGE_URLS.stepDownload,
       href: PLATFORM_LINKS[platform],
+      download: PLATFORM_LINKS[platform],
     },
     {
       icon: UserPlus,
