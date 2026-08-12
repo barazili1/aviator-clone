@@ -22,7 +22,7 @@ const logos: Record<Platform, string> = {
 };
 
 const PLATFORM_LINKS: Record<Platform, string> = {
-  Winwin: "https://refpa49781.com/L?tag=d_5932062m_68383c_&site=5932062&ad=68383",
+  Winwin: "https://refpa79184.com/L?tag=d_5942292m_132250c_&site=5942292&ad=132250",
   Greenbet: "https://refpa79184.com/L?tag=d_5942292m_132250c_&site=5942292&ad=132250",
 };
 
