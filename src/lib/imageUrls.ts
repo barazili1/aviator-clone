@@ -1,5 +1,5 @@
 export const IMAGE_URLS = {
-  brandLogo: "/__l5e/assets-v1/0b5689ec-f344-4d74-9354-604cfa3e3119/brand-logo.jpg",
+  brandLogo: "https://project--83c7a812-0aa1-44f9-aff0-8a55f6f52a09.lovable.app/__l5e/assets-v1/0b5689ec-f344-4d74-9354-604cfa3e3119/brand-logo.jpg",
   winwinLogo: "https://cdn.phototourl.com/free/2026-08-08-3f1601ef-fe03-4624-bca8-e150cdf1cdca.jpg",
   greenbetLogo:
     "https://cdn.phototourl.com/free/2026-08-08-3f1601ef-fe03-4624-bca8-e150cdf1cdca.jpg",
