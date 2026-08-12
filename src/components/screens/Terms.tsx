@@ -17,12 +17,12 @@ import type { Platform } from "./PlatformSelect";
 import { IMAGE_URLS } from "@/lib/imageUrls";
 
 const logos: Record<Platform, string> = {
-  Winwin: IMAGE_URLS.winwinLogo,
+  Coldbet: IMAGE_URLS.coldbetLogo,
   Greenbet: IMAGE_URLS.greenbetLogo,
 };
 
 const PLATFORM_LINKS: Record<Platform, string> = {
-  Winwin: "https://refpa79184.com/L?tag=d_5942292m_132250c_&site=5942292&ad=132250",
+  Coldbet: "https://coldredir.com/L?tag=d_5144153m_126646c_&site=5144153&ad=126646",
   Greenbet: "https://refpa79184.com/L?tag=d_5942292m_132250c_&site=5942292&ad=132250",
 };
 
